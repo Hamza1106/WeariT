@@ -61,7 +61,7 @@ document.querySelectorAll('.size-btn').forEach(btn => {
         this.classList.add('active');
         selectedSize = this.dataset.size;
         
-        // Update price according to size
+        
         const price = sizePrices[selectedSize];
         document.getElementById('productPrice').textContent = `Rs ${price.toLocaleString()}`;
     });
@@ -154,7 +154,7 @@ document.getElementById('addToCartBtn').addEventListener('click', () => {
     const activeColor = document.querySelector('.color-dot.active').dataset.color;
     const currentPrice = sizePrices[selectedSize];
     
-    // Check if item already exists in cart
+   
     const existingItem = cart.find(item => 
         item.color === activeColor && item.size === selectedSize
     );
@@ -181,7 +181,7 @@ document.getElementById('cartBtn').addEventListener('click', () => {
     cartModal.style.display = 'flex';
 });
 
-// Quantity control functions - Define globally
+// Quantity function
 window.increaseQuantity = function(index) {
     cart[index].quantity += 1;
     updateCart();
@@ -267,12 +267,12 @@ document.getElementById('checkoutBtn').addEventListener('click', () => {
     }
 });
 
-// Favorite - Updated with custom message
+// Favorite 
 document.getElementById('favoriteBtn').addEventListener('click', () => {
     showNotification('Thank you for like this product ❤️');
 });
 
-// Share - Working clipboard functionality
+// clipboard
 document.getElementById('shareBtn').addEventListener('click', async () => {
     const url = window.location.href;
     try {
@@ -306,5 +306,6 @@ function showNotification(message) {
     }, 3000);
 }
 
-// Initialize
+
+
 document.body.style.background = themes.olive.bg;
